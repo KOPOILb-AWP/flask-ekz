@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+<p>You're logged in already!</p>
+{% else %}
+
+<div class="login-box">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='LRstyle.css') }}">
+  <h2>Login</h2>
+  <form action="/login" method="POST">>
+    <div class="user-box">
+      <input type="username" name="username" placeholder="Username">
+    </div>
+    <div class="user-box">
+      <input type="password" name="password" placeholder="Password">
+    </div>
+    <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <input type="submit" value="Log in">
+    </a>
+  </form>
+</div>
+{% endif %}
+{% endblock %}

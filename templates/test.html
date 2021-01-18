@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style1.css') }}">
+    <script src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+		<script type="text/javascript">
+
+            $(document).ready(function() {
+            // default stylsheet
+            $("#theme1").click(function() {
+            $("link[rel=stylesheet]").attr({href : "{{ url_for('static', filename='theme2.css') }}"});
+        });
+        });
+	$(document).ready(function(){
+    $('#btnGetValue').click(function() {
+
+    	var selValue1 = parseInt($('input[name=q1]:checked').val()); 
+    	var selValue2 = parseInt($('input[name=q2]:checked').val()); 
+    	var selValue3 = parseInt($('input[name=q3]:checked').val()); 
+    	var selValue4 = parseInt($('input[name=q4]:checked').val()); 
+    	var selValue5 = parseInt($('input[name=q5]:checked').val()); 
+    	var selValue6 = parseInt($('input[name=q6]:checked').val()); 
+    	var selValue7 = parseInt($('input[name=q7]:checked').val()); 
+    	var selValue8 = parseInt($('input[name=q8]:checked').val()); 
+    	var selValue9 = parseInt($('input[name=q9]:checked').val()); 
+        var selValue10 = parseInt($('input[name=q10]:checked').val()); 
+        var total = selValue1 + selValue2 + selValue3 + selValue4 + selValue5 +selValue6+ selValue7+ selValue8+ selValue9+ selValue10;
+
+
+         if(0 <= total && total <=30){
+        	$('#show').html('<p id="last">Your Score is :' + total + '</br>Ужасно, парень </p>' );
+        }
+        else if(total >= 31 && total <=69){
+        	$('#show').html('<p id="last"><br/>Your Score is :' + total + '</br> Неплохо, но можно лучше</p>' );
+        }
+        else if(total >=70 && total <= 100){
+        	$('#show').html('<p id="last">Your Score is :' + total + '</br>Отлично</p>' );
+        }
+       	else{
+       		$('#show').html('Ответь на все вопросы! </br> <a href="test.html" id="exit">Start</a>' );
+       	}
+
+    });
+});
+	</script>
+</head>
+<body>
+		<header>
+             <img src="{{url_for('static', filename='image.jpg')}}">
+			<div id = "blk"></div>
+
+			<div id ="blk2"><strong>как хорошо ты знаешь dota 2?</strong></div>
+
+
+			<ul class = "menu">
+				<li><a href="/">Выход на главную страницу</a>
+				</li>
+			</ul>
+		</header>
+       
+<div id="slider">
+ 
+  <a href="#" class="control_prev"></a>
+  <ul>
+    <li>
+        <h3>1. Как Zeus оказался на битве древних?</h3></br>  
+        <input type="radio" name="q1" value="0" id="q1c">Он пришел восстановить величие </br> греческих богов</br>   
+        <input type="radio" name="q1" value="10" id="q1c">Его отправила жена</br>
+        <input type="radio" name="q1" value="0" id="q1b">Arc Warden попросил его помощи</br>  
+        <input type="radio" name="q1" value="0" id="q1a">Чтобы найти других греческих богов</br>     
+    </li>
+
+    <li>
+        <h3>2. Кто такой Roshan?</h3></br>  
+        <input type="radio" name="q2" value="0" id="q1c">Огромный монстр</br>   
+        <input type="radio" name="q2" value="0" id="q1c">Шанс выиграть игру</br>
+        <input type="radio" name="q2" value="10" id="q1b">Обычный воришка</br>  
+        <input type="radio" name="q2" value="0" id="q1a">Призванный страж из ада</br>
+    </li>
+
+    <li>
+        <h3>3. Почему битва древних никогда не закончится?</h3></br>  
+        <input type="radio" name="q3" value="0" id="q1c"> Valve нужно больше золота! </br>   
+        <input type="radio" name="q3" value="0" id="q1c"> На битву наложено проклятие </br>
+        <input type="radio" name="q3" value="10" id="q1b"> Из-за мультивселенных </br>
+        <input type="radio" name="q3" value="0" id="q1a">Герои Dota 2 находятся в волшебном измерении </br>
+    </li>
+
+    <li>
+        <h3>4. Кто пытался приручить Viper’a?</h3></br> 
+        <input type="radio" name="q4" value="0" id="q1c">Lich </br>   
+        <input type="radio" name="q4" value="10" id="q1c"> Pugna</br>
+        <input type="radio" name="q4" value="0" id="q1b">  Necrophos </br>  
+        <input type="radio" name="q4" value="0" id="q1a"> Death Prophet </br>  
+    </li>
+
+    <li>
+        <h3>5. Сколько фундаменталов в Dota 2? </h3></br> 
+        <input type="radio" name="q5" value="0" id="q1c">2</br>   
+        <input type="radio" name="q5" value="0" id="q1c">3</br>
+        <input type="radio" name="q5" value="10" id="q1b">4</br>  
+        <input type="radio" name="q5" value="0" id="q1a">5 </br>
+    </li>
+
+        <li>
+        <h3>6. Как Terrorblade получил свою аркану? </h3></br>  
+        <input type="radio" name="q6" value="0" id="q1c">Ее дал Arc Warden </br>   
+        <input type="radio" name="q6" value="0" id="q1c"> Все дело в его любви к Placebo </br>
+        <input type="radio" name="q6" value="0" id="q1b"> Подарили в мире демонов </br>  
+        <input type="radio" name="q6" value="10" id="q1a"> Слишком долго смотрелся в зеркало</br>       
+    </li>
+
+    <li>
+        <h3>7.Сколько всего братьев-спиритов в Dota 2? </h3></br>  
+        <input type="radio" name="q7" value="0" id="q1c">3 </br>   
+        <input type="radio" name="q7" value="10" id="q1c">4 </br>
+        <input type="radio" name="q7" value="0" id="q1b"> 5 </br>  
+        <input type="radio" name="q7" value="0" id="q1a"> 6 </br>
+    </li>
+
+    <li>
+        <h3>8. Кто является стражем мира мертвых </br> Dota 2?</h3></br>  
+        <input type="radio" name="q8" value="0" id="q1c">Abaddon</br>   
+        <input type="radio" name="q8" value="0" id="q1c">Arc Warden</br>
+        <input type="radio" name="q8" value="0" id="q1b">Undying</br>  
+        <input type="radio" name="q8" value="10" id="q1a">Visage </br>
+    </li>
+
+    <li>
+        <h3>9. У кого оригинал aghanim's scepter?</h3></br> 
+        <input type="radio" name="q9" value="0" id="q1c">У Valve, даже не ищите</br>   
+        <input type="radio" name="q9" value="0" id="q1c">Его украл Lifestealer. Ух, воришка</br>
+        <input type="radio" name="q9" value="10" id="q1b">Его отдали Rubick</br>  
+        <input type="radio" name="q9" value="0" id="q1a">У Alchemist, конечно. Как столько аганимов </br> варить без оригинала?</br> 
+    </li>
+
+    <li>
+        <h3>О чем переживает Earthshaker в своей </br> новой аркане?</h3></br> 
+        <input type="radio" name="q10" value="0" id="q1c">Что он голубой</br>   
+        <input type="radio" name="q10" value="0" id="q1c">О сломанном роге</br>
+        <input type="radio" name="q10" value="10" id="q1b"> О мультивселенных </br>  
+        <input type="radio" name="q10" value="0" id="q1a">О битве Мо’рокай</br>
+    </li>
+
+    <li>
+        
+        <input type="button" id="btnGetValue" Value="View Result" />
+        <p id ="show"></p>
+        </br>
+        </br>
+        <A HREF="/" id="exit">Выход</A>
+
+    </li>
+
+   </ul>
+</div>
+
+		<footer>
+
+			<div id = "foot">
+				<ul>
+                    <li><a href="#" style="color:#d35400" id = "theme1">Сменить оформление</a></li>
+			</ul>	
+			</div>
+
+		</footer>
+</body>
+</html>

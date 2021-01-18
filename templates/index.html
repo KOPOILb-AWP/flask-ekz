@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+   
+	{% if data %}
+	<h3>{{data}}</h3>
+	{% else %}
+	<head>
+		<title>"Экзамен"</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+		<script src="{{ url_for('static', filename='jquery.js') }}"></script>
+		<script src="{{ url_for('static', filename='script.js') }}"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+			// default stylsheet
+			$("#theme1").click(function() {
+			$("link[rel=stylesheet]").attr({href : "{{ url_for('static', filename='theme1.css') }}"});
+		});
+		});
+		</script>
+	</head>
+	<a href="/logout">Выйти</a> <br> <br>
+	<header>
+	
+		<img src="{{url_for('static', filename='image.jpg')}}" />
+	</header>
+
+	<section><h1>как хорошо ты знаешь dota 2?</h1>
+		<h2>Удачи, мужик</h2>
+	</section>
+	<a href="test" class="submit">Пройти тест</a>
+
+	<footer>
+
+		<div id = "foot">
+			<ul>
+				
+				<li><a href="#" style="color:#d35400" id = "theme1">Сменить оформление</a></li>
+			</ul>	
+		</div>
+
+	</footer>
+	
+	{% endif %}
+
+{% else %}
+<div class="login-box">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mainpagestyle.css') }}">
+	<h2>Ты не залогинен</h2>
+	<a href="/login">Авторизация</a> 
+	<a href="/register">Регистрация</a>
+
+{% endif %}
+{% endblock %}
